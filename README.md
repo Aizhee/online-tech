@@ -1,7 +1,7 @@
 
 # ONLINE TECHNOLOGIES REPOSITORY
 
-A repository for my web activities on Online technologies
+A repository for my web activities on  Online technologies laboratory
 
 
 ## Tech Stack Used:
