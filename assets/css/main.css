@@ -77,6 +77,9 @@
 	.options-button {
 		flex-direction: column;
 	}
+    .options-button1>li{
+        margin-right: 30px;
+    }
 }
 
 @media (max-width: 450px){
@@ -93,6 +96,11 @@
         text-align: left;
        margin-left: -15px;
     }
+
+    .work>h2{
+        font-size: 150%;
+    }
+
 }
 @media (max-width: 280px){
     .intro--banner h1 {
@@ -109,6 +117,11 @@
         font-size: 120%;
         text-align: left;
         margin-left: -20px;
+    }
+
+    .options-button > li button {
+        padding: 5px;
+        font-size: 90%;
     }
 }
 
