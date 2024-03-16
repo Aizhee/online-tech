@@ -88,6 +88,9 @@
         text-align: left;
         margin-left: -50px;
     }
+    .outer-nav>li::before {
+        height:20%;
+    }
 }
 
 @media (max-width:386px) {
