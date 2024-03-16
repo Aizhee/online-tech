@@ -1,0 +1,228 @@
+@font-face {
+	font-family: 'Yow';
+	src: url(MyriadPro-Cond.otf);
+}
+
+@font-face {
+	font-family: 'Yow2';
+	src: url(MyriadPro-Light.otf);
+}
+
+/* For header */
+body{
+	background-color: #ededed;
+	margin: 0px;
+}
+#header-container{
+	background: #474747;
+	margin-top: 50px;
+	font-family: 'Yow';
+	box-shadow: -1px 1px 4px black;
+}
+
+.header-inner-container{
+	justify-content:center ;
+	display: flex;
+	height: 100px;
+	align-items: center;
+	gap:125px
+	
+}
+
+
+.header-tagline {
+	padding: 20px;
+	color: white;
+	width: 500px;
+}
+
+.header-tagline > p {
+	color: #8d8d8d;
+	font-family: 'Yow';
+	font-size: 25px;
+	margin-top: 22px;
+
+}
+
+.header-logo{
+	display: flex;
+	height: 120px;
+	flex: 0.25;
+	align-items: center;
+	justify-content: center;
+	gap:10px;
+	padding-left: 10px;
+	padding-right: 20px;
+	box-shadow: -1px 1px 4px black;
+	width: 360px;
+	background: #2f549b;
+}
+
+.header-logo > p{
+	padding-left: 20px;
+	font-size: 30px;
+	color: white;
+}
+
+.header-logo > h1{
+	padding-left:20px;
+	font-size: 60px;
+	color: white;
+}
+
+/* For Body */
+#body-wrapper {
+    width: 960px;
+    margin: 0 auto;
+}
+#panel-container{
+	margin: 0 auto;
+	width: 960px;
+}
+
+
+.panel-box > li:hover, .panel-box > li:hover > * {
+	color: white;
+	background: #2d5499;
+}
+
+.panel-box > li > *{
+	margin-bottom: 25px;
+}
+
+.panel-box > li > a{
+   text-decoration: none;
+   color: #cbcbcb;
+}
+
+.panel-box > li > p{
+   color: #6e6e6e;
+}
+
+.panel-box > li > hr{
+   width: 80px;
+   margin: 0 auto 30px auto;
+}
+
+.panel-box > li:last-child{
+   margin-right: 0px;
+}
+
+.panel-box > li > h3 {
+   font-size: 30px;
+   color: #2d5499;
+}
+
+.panel-box > li > .panel-subtitle{
+   font-size: 14px;
+   color: #9aadcd;
+}
+
+.panel-box{
+	margin-left: -30px;
+	display: flex;
+	justify-content: center;
+	
+}
+
+.panel-box > li{
+
+	list-style: none;
+	margin: 50px 20px 50px 0px;
+    width: 225px;
+    height: 440px;
+    padding: 20px;
+    text-align: center;
+    float: left;
+    background-color: white;
+    box-shadow: 0 1px 3px #ccc;
+    font-family: 'Yow2';
+}
+
+/* For Footer */
+ h5{
+	margin-top: -2px;
+}
+
+#footer-container {
+	font-family: 'Yow2';
+	font-weight: 1000px;
+	margin-bottom: 50px;
+}
+  
+.footer-title {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    background: #2f549b;
+	color: white;
+    margin-bottom: -25px;
+    padding: 15px;
+    width: 220px;
+    position: relative; 
+    z-index: 1; 
+	order:2;
+	display: block;
+}
+
+.footer-icons {
+    text-align: center;
+    background: gray;
+    display: flex;
+    justify-content: center; 
+    list-style: none;
+    position: relative;
+    gap: 10px;
+    max-width: 960px; 
+    margin: 0 auto; 
+    background-color: #c6c6c6;
+    box-shadow: inset 0 5px 6px -6px black;
+    padding: 40px 20px 20px 20px;
+}
+
+
+.footer-icons > li {
+	width: 153px;
+	height: 110px;
+	text-align: center;
+	color: #686868;
+	font-family: 'Yow2';
+}
+
+.triangles-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.triangle1,
+.triangle {
+	z-index: 1;
+    width: 0px;
+    height: 0px;
+    border-style: solid;
+    border-color: transparent #1e355f transparent transparent;
+    margin-bottom: -80px;
+}
+
+.triangle1 {
+    border-width: 24px 24px 0 0;
+	transform: rotate(180deg);
+	margin-right: -297px;
+}
+
+.triangle {
+    border-width: 0 24px 24px 0;
+}
+
+.footer-icons > li:hover > img{
+	filter:brightness(0) invert(1);
+	
+}
+
+.footer-icons > li:hover, .footer-icons > li:hover > p{
+	border-radius: 5px;
+	color: white;
+	background: #2f549b;
+}
