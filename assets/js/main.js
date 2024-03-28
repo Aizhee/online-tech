@@ -84,14 +84,27 @@ document.addEventListener('DOMContentLoaded', function() {
 
             commits.forEach(commit => {
                 let listItem = document.createElement('li');
-                listItem.textContent = `Commit: ${commit.commit.message}, Time: ${formatDateTime(commit.commit.author.date)}`;
-                listItem.style.listStyle = 'disc'; // Set the list-style to disc
-
+                listItem.textContent = `➕: ${commit.commit.message}, ${getClockEmoji(commit.commit.author.date)}: ${formatDateTime(commit.commit.author.date)}`;
+                listItem.style.listStyle = 'none';
+                listItem.style.listStylePosition = 'inside';
+                
+                function getClockEmoji(dateTime) {
+                    const hour = new Date(dateTime).getHours();
+                    if (hour >= 6 && hour < 12) {
+                        return '🕛'; // Clock emoji for morning
+                    } else if (hour >= 12 && hour < 18) {
+                        return '🕒'; // Clock emoji for afternoon
+                    } else {
+                        return '🕘'; // Clock emoji for evening/night
+                    }
+                }
+                
                 function formatDateTime(dateTime) {
                     const options = { year: '2-digit', month: '2-digit', day: '2-digit', hour: 'numeric', minute: 'numeric' };
                     const formattedDateTime = new Date(dateTime).toLocaleString('en-US', options);
                     return formattedDateTime.replace(',', ' ').toUpperCase();
                 }
+                
                 commitList.appendChild(listItem);
             });
         })
