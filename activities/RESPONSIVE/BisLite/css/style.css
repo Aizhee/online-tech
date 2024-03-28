@@ -844,15 +844,15 @@ p#copyright {
         position: absolute;
         top: 0;
     }
-    .menu{
+    .menu {
         padding-top: 10px;
     }
     #menu-toggle {
         opacity: 0;
     }
     
-    #logo{
-        margin-left: 15%;
+    #logo {
+        margin-left: 20%;
     }
 
     .menu-button-container {
@@ -930,6 +930,10 @@ p#copyright {
 
     .mid_content_space {
         margin-right: 0px;
+    }
+
+    #mid_content  {
+        padding-bottom:50px;
     }
     
 }
