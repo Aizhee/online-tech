@@ -75,5 +75,24 @@ document.querySelectorAll('.nav-btn').forEach(function(btn) {
 });
 
 
+fetch('https://api.github.com/repos/Aizhee/online-tech/commits')
+    .then(response => response.json())
+    .then(data => {
+        let commits = data.slice(0, 2); // Get the latest 5 commits
+        let commitList = document.getElementById('commit-list');
 
+        commits.forEach(commit => {
+            let listItem = document.createElement('li');
+            listItem.textContent = `Commit: ${commit.commit.message}, Time: ${formatDateTime(commit.commit.author.date)}`;
+            listItem.style.listStyle = 'disc'; // Set the list-style to disc
+
+            function formatDateTime(dateTime) {
+                const options = { year: '2-digit', month: '2-digit', day: '2-digit', hour: 'numeric', minute: 'numeric' };
+                const formattedDateTime = new Date(dateTime).toLocaleString('en-US', options);
+                return formattedDateTime.replace(',', ' ').toUpperCase();
+            }
+            commitList.appendChild(listItem);
+        });
+    })
+    .catch(error => console.error(error));
 
