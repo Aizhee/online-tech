@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title> Simple Form Application </title>
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+	
+	<div id="container">
+
+		<form action="#" id="rectangle">
+
+			<fieldset>
+
+				<legend id="rec-legend"> Rectangle - Area </legend>
+
+				<div class="form-container">
+
+					<label for="rec-length"> Length </label>
+					<input type="text" id="rec-length" min="1" placeholder = "Enter Length">
+
+				</div>
+				<div class="form-container">
+
+					<label for="width"> Width </label>
+					<input type="number" id="rec-width" min="1" placeholder = "Enter Width">
+
+				</div>
+				<div class="form-container">
+
+					<label for="rec-mode"> Mode </label>
+					<select id="rec-mode">
+						<option value="Rec-Area"> Area </option>
+						<option value="Rec-Perimeter"> Perimeter </option>
+					</select>
+
+				</div>
+				<div class="form-container">
+
+					<label for="rec-result"> Result </label>
+					<input type="text" id="rec-result" disabled>
+
+				</div>
+				<div class="form-container">
+
+					<label for="rec-compute"> &nbsp; </label>
+					<input type="button" id="rec-compute" value="Compute">
+
+				</div>
+
+			</fieldset>
+
+		</form>
+
+		<form action="#" id="triangle">
+
+			<fieldset>
+
+				<legend id="tri-legend"> Triangle - Area </legend>
+
+				<div class="form-container area-container">
+
+					<label for="tri-base"> Base </label>
+					<input type="text" id="tri-base" min="1" placeholder = "Enter Base">
+
+				</div>
+				<div class="form-container area-container">
+
+					<label for="tri-height"> Height </label>
+					<input type="number" id="tri-height" min="1" placeholder = "Enter Height">
+
+				</div>
+				<div class="form-container per-container" style="display: none;">
+
+					<label for="tri-side1"> Side 1 </label>
+					<input type="number" id="tri-side1" min="1" placeholder = "Enter Side 1">
+
+				</div>
+				<div class="form-container per-container" style="display: none;"> 
+
+					<label for="tri-side2"> Side 2 </label>
+					<input type="number" id="tri-side2" min="1" placeholder = "Enter Side 2">
+
+				</div>
+				<div class="form-container per-container" style="display: none;">
+
+					<label for="tri-side3"> Side 3 </label>
+					<input type="number" id="tri-side3" min="1" placeholder = "Enter Side 3">
+
+				</div>
+				<div class="form-container">
+
+					<label for="tri-result"> Result </label>
+					<input type="text" id="tri-result" disabled>
+
+				</div>
+				<div class="form-container">
+
+					<label for="tri-mode"> Mode </label>
+					<select id="tri-mode">
+						<option value="Tri-Area"> Area </option>
+						<option value="Tri-Perimeter"> Perimeter </option>
+					</select>
+
+				</div>
+				<div class="form-container">
+
+					<label for="tri-compute"> &nbsp; </label>
+					<input type="button" id="tri-compute" value="Compute">
+
+				</div>
+
+			</fieldset>
+
+		</form>
+
+		<form action="#" id="circle">
+
+			<fieldset>
+
+				<legend id="cir-legend"> Circle - Area </legend>
+
+				<div class="form-container">
+
+					<label for="cir-radius"> Radius </label>
+					<input type="text" id="cir-radius" min="1" placeholder = "Enter Radius">
+
+				</div>
+				<div class="form-container">
+
+					<label for="cir-result"> Result </label>
+					<input type="text" id="cir-result" disabled>
+
+				</div>
+				<div class="form-container">
+
+					<label for="cir-mode"> Mode </label>
+					<select id="cir-mode">
+						<option value="Cir-Area"> Area </option>
+						<option value="Cir-Perimeter"> Perimeter </option>
+					</select>
+
+				</div>
+				<div class="form-container">
+
+					<label for="tri-compute"> &nbsp; </label>
+					<input type="button" id="cir-compute" value="Compute">
+
+				</div>
+
+			</fieldset>
+
+		</form>
+
+	</div>
+
+</body>
+<!-- <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script> -->
+<script src="js/jquery.js"></script>
+<script src="js/main.js"></script>
+</html>
