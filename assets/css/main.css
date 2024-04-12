@@ -73,6 +73,8 @@
     margin-top:25px;
 }
 
+
+
 @media (max-width:719px) {
 	.options-button {
 		flex-direction: column;
@@ -80,6 +82,7 @@
     .options-button1>li{
         margin-right: 30px;
     }
+    
 }
 
 @media (max-width: 450px){
@@ -91,6 +94,8 @@
     .outer-nav>li::before {
         height:20%;
     }
+    
+
 }
 
 @media (max-width:386px) {
