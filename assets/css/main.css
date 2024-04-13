@@ -73,12 +73,21 @@
     margin-top:25px;
 }
 
+.collapsible{
+    background-color:transparent;
+    outline: none;
+    border: none;
+}
 
+.collapsible:hover{
+    color: blue;
+}
+.content{
+    display: none;
+}
 
 @media (max-width:719px) {
-	.options-button {
-		flex-direction: column;
-	}
+    
     .options-button1>li{
         margin-right: 30px;
     }
@@ -86,6 +95,16 @@
 }
 
 @media (max-width: 450px){
+    .options-button > li button {
+        padding: 5px;
+        font-size: 90%;
+        margin-left: 20px;
+    }
+	.options-button {
+		flex-direction: column;
+        padding: 5px;
+        font-size: 90%;
+	}
     .outer-nav.is-vis>li {
         font-size: 190%;
         text-align: left;

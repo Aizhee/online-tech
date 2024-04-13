@@ -74,6 +74,31 @@ document.querySelectorAll('.nav-btn').forEach(function(btn) {
     });
 });
 
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    var content = this.nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
+      this.classList.remove("active");
+      this.querySelector('i').classList.remove("fa-chevron-up");
+        this.querySelector('i').classList.add("fa-chevron-down");
+    } else {
+      for (var j = 0; j < coll.length; j++) {
+        coll[j].classList.remove("active");
+        coll[j].nextElementSibling.style.display = "none";
+        coll[j].querySelector('i').classList.remove("fa-chevron-up");
+          coll[j].querySelector('i').classList.add("fa-chevron-down");
+      }
+      content.style.display = "block";
+      this.classList.add("active");
+      this.querySelector('i').classList.remove("fa-chevron-down");
+        this.querySelector('i').classList.add("fa-chevron-up");
+    }
+  });
+}
 
 document.addEventListener('DOMContentLoaded', function() {
     fetch('https://api.github.com/repos/Aizhee/online-tech/commits')
