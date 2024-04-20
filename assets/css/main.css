@@ -73,6 +73,12 @@
     margin-top:25px;
 }
 
+.collcont{
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+}
+
 .collapsible{
     background-color:transparent;
     outline: none;
@@ -82,9 +88,7 @@
 .collapsible:hover{
     color: blue;
 }
-.content{
-    display: none;
-}
+
 
 @media (max-width:719px) {
     
