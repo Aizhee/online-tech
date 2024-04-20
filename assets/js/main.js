@@ -105,7 +105,7 @@ document.addEventListener('DOMContentLoaded', function() {
     fetch('https://api.github.com/repos/Aizhee/online-tech/commits')
         .then(response => response.json())
         .then(data => {
-            let commits = data.slice(0, 2); // Get the latest 2 commits
+            let commits = data.slice(0, 1); // Get the latest 1 commit
             let commitList = document.getElementById('commit-list');
 
             commits.forEach(commit => {
@@ -115,16 +115,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 listItem.style.listStylePosition = 'inside';
                 
                 function getClockEmoji(dateTime) {
-                    const hour = new Date(dateTime).getHours();
-                    if (hour >= 6 && hour < 12) {
-                        return '🕛'; // Clock emoji for morning
-                    } else if (hour >= 12 && hour < 18) {
-                        return '🕒'; // Clock emoji for afternoon
-                    } else {
-                        return '🕘'; // Clock emoji for evening/night
-                    }
+                    return getTimeMoji(new Date(dateTime),'clock');
                 }
-                
+
                 function formatDateTime(dateTime) {
                     const options = { year: '2-digit', month: '2-digit', day: '2-digit', hour: 'numeric', minute: 'numeric' };
                     const formattedDateTime = new Date(dateTime).toLocaleString('en-US', options);
