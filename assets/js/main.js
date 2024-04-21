@@ -70,7 +70,7 @@ document.querySelectorAll('.nav-btn').forEach(function(btn) {
         
         // Restore the transition
         container.style.transition = '';
-        container.style.transition = 'opacity 1s ease';
+        container.style.transition = 'opacity 1s ease-in-out';
     });
 });
 
