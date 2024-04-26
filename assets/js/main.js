@@ -110,7 +110,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             commits.forEach(commit => {
                 let listItem = document.createElement('li');
-                listItem.textContent = `➕: ${commit.commit.message}, ${getClockEmoji(commit.commit.author.date)}: ${formatDateTime(commit.commit.author.date)}`;
+                listItem.textContent = `➕: ${commit.commit.message}, ${Tmj.getTimeMoji(commit.commit.author.date)}: ${formatDateTime(commit.commit.author.date)}`;
                 listItem.style.listStyle = 'none';
                 listItem.style.listStylePosition = 'inside';
                 
