@@ -1,5 +1,9 @@
 
-
+/*
+ +-+-+-+-+ +-+-+-+-+ +-+-+-+-+-+-+ +-+-+-+-+
+ |M|A|I|N| |J|A|V|A| |S|C|R|I|P|T| |F|I|L|E|
+ +-+-+-+-+ +-+-+-+-+ +-+-+-+-+-+-+ +-+-+-+-+
+*/
 
 document.querySelectorAll('.nav-btn').forEach(function(btn1) {
     btn1.addEventListener('click', function() {
