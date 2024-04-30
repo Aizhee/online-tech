@@ -134,3 +134,23 @@ document.addEventListener('DOMContentLoaded', function() {
         .catch(error => console.error(error));
 });
 
+window.addEventListener('load', function () {
+    // Show loading screen initially
+    var loadingScreen = document.querySelector('.loading-bar');
+    loadingScreen.classList.add('show');
+
+    // Hide loading screen after 1 second
+    setTimeout(function () {
+        loadingScreen.classList.remove('show');
+        setTimeout(function () {
+        loadingScreen.style.display = 'none';
+        }, 1010);
+    }, 1000);
+
+    // You can also hide it when the page fully loads
+    // Uncomment the lines below to use this method instead
+
+    // window.addEventListener('load', function () {
+    //     loadingScreen.classList.remove('show');
+    // });
+});

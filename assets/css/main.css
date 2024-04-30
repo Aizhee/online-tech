@@ -1961,6 +1961,43 @@ body {
     color: blue;
 }
 
+.loading-bar{
+    background-color: black;
+    height: 100%;
+    position: fixed;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    z-index: 998;
+    opacity: 0;/*Startwith0opacity*/
+    transition: opacity 0.5s ease; /* Fade transition */
+    -webkit-transition: opacity 0.5s ease; /* Fade transition */
+    -moz-transition: opacity 0.5s ease; /* Fade transition */
+    -ms-transition: opacity 0.5s ease; /* Fade transition */
+    -o-transition: opacity 0.5s ease; /* Fade transition */
+}
+
+l-square {
+    z-index: 999;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+}
+
+.loading-bar.show {
+    display: block;
+    opacity: 1; /* Fade in */
+}
 
 @media (max-width:719px) {
     
