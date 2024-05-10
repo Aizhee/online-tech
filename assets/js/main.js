@@ -106,32 +106,48 @@ for (var i = 0; i < coll.length; i++) {
 
 
 document.addEventListener('DOMContentLoaded', function() {
-    fetch('https://api.github.com/repos/Aizhee/online-tech/commits')
+// Global variable to store the latest commit across repositories
+let latestCommit = null;
+
+// Function to fetch commits and update the latest commit
+function fetchAndUpdateLatestCommit(repoUrl) {
+    fetch(repoUrl)
         .then(response => response.json())
         .then(data => {
-            let commits = data.slice(0, 1); // Get the latest 1 commit
-            let commitList = document.getElementById('commit-list');
-
-            commits.forEach(commit => {
-                let listItem = document.createElement('li');
-                listItem.textContent = `➕: ${commit.commit.message}, ${Tmj.getTimeMoji(commit.commit.author.date)}: ${formatDateTime(commit.commit.author.date)}`;
-                listItem.style.listStyle = 'none';
-                listItem.style.listStylePosition = 'inside';
-                
-                function getClockEmoji(dateTime) {
-                    return getTimeMoji(new Date(dateTime),'clock');
+            data.forEach(commit => {
+                if (!latestCommit || new Date(commit.commit.author.date) > new Date(latestCommit.commit.author.date)) {
+                    latestCommit = commit;
                 }
-
-                function formatDateTime(dateTime) {
-                    const options = { year: '2-digit', month: '2-digit', day: '2-digit', hour: 'numeric', minute: 'numeric' };
-                    const formattedDateTime = new Date(dateTime).toLocaleString('en-US', options);
-                    return formattedDateTime.replace(',', ' ').toUpperCase();
-                }
-                
-                commitList.appendChild(listItem);
             });
         })
         .catch(error => console.error(error));
+}
+
+// Function to update UI with the latest commit
+function updateUIWithLatestCommit() {
+    if (latestCommit) {
+        const commitList = document.getElementById('commit-list');
+        const listItem = document.createElement('li');
+        listItem.textContent = `➕: ${latestCommit.commit.message}, ${Tmj.getTimeMoji(latestCommit.commit.author.date)}: ${formatDateTime(latestCommit.commit.author.date)}`;
+        listItem.style.listStyle = 'none';
+        listItem.style.listStylePosition = 'inside';
+
+        function formatDateTime(dateTime) {
+            const options = { year: '2-digit', month: '2-digit', day: '2-digit', hour: 'numeric', minute: 'numeric' };
+            const formattedDateTime = new Date(dateTime).toLocaleString('en-US', options);
+            return formattedDateTime.replace(',', ' ').toUpperCase();
+        }
+
+        commitList.appendChild(listItem);
+    }
+}
+
+// Fetch commits for both repositories and update the latest commit
+fetchAndUpdateLatestCommit('https://api.github.com/repos/Aizhee/online-tech/commits');
+fetchAndUpdateLatestCommit('https://api.github.com/repos/Aizhee/phpsql-server/commits');
+
+// After both repositories' commits have been fetched, update the UI with the latest commit
+setTimeout(updateUIWithLatestCommit, 2000); // Adjust the delay as needed
 });
 
 window.addEventListener('load', function () {

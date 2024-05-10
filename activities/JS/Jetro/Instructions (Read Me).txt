@@ -1,0 +1,9 @@
+1. Create a Responsive Design of the Web Page (It must look good on desktop and mobile screens)
+2. Integrate a Slider using jQuery (you can customized the images. At least 5 images. Eg. The slider is the "Slide One")
+3. Integrate an Image Gallery with Overlay using jQuery (5 squared images, below the Slider)
+4. Integrate an Accordion (Single Open), at least 4 accordion-titles. 
+   Feel-free to placed it anywhere on the page and put some contents on it.
+5. Upload your files on your designated web page.
+6. Deadline (Monday, May 13, 2024, 11.59 PM)
+
+Note: If you want to add more images (img) in the template, you can do so. Be creative.
