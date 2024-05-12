@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Protected</title>
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js"></script>
+<script>
+// Function to calculate time remaining until a specific date
+function getTimeRemaining(endTime) {
+    var total = endTime - Date.parse(new Date());
+    var seconds = Math.floor((total / 1000) % 60);
+    var minutes = Math.floor((total / 1000 / 60) % 60);
+    var hours = Math.floor((total / (1000 * 60 * 60)) % 24);
+    var days = Math.floor(total / (1000 * 60 * 60 * 24));
+    
+    return {
+        'total': total,
+        'days': days,
+        'hours': hours,
+        'minutes': minutes,
+        'seconds': seconds
+    };
+}
+
+// Function to start countdown
+function startCountdown(endTime) {
+    function updateCountdown() {
+        var redirectURL = atob(getParameterByName('redirectURL')); 
+        var time = getTimeRemaining(endTime);
+        document.getElementById('days').innerText = time.days;
+        document.getElementById('hours').innerText = ('0' + time.hours).slice(-2);
+        document.getElementById('minutes').innerText = ('0' + time.minutes).slice(-2);
+        document.getElementById('seconds').innerText = ('0' + time.seconds).slice(-2);
+
+        if (time.total <= 0) {
+            clearInterval(timerInterval);
+            document.getElementById('content').innerHTML = `Didn't Redirect? Click here: <a href="`+redirectURL+`">Go to website</a>`; // Message after countdown
+            window.location.href = redirectURL; // Redirect URL after countdown
+        }
+    }
+
+    updateCountdown();
+    var timerInterval = setInterval(updateCountdown, 1000);
+}
+
+// Function to check password and start countdown if correct
+function checkPassword() {
+    var redirectURL = atob(getParameterByName('redirectURL')); 
+    var password = atob(getParameterByName('endtime')); // Decrypting the password (end time)
+
+    if (password && Date.parse(password)) { 
+        // Validating the password (end time)
+        var userPassword = document.getElementById('password').value.trim(); // Getting user-entered password
+        function javascriptCallback(response) {
+            var isApproved = response === true; // Assuming the response is a boolean value indicating approval
+            if (isApproved) {
+                if (userPassword === password) {
+                    document.getElementById('content').innerHTML = `Didn't Redirect? Click here: <a href="`+redirectURL+`">Go to website</a>`; // Message after countdown
+                    window.location.href = redirectURL; // Redirect URL after countdown
+                } else {
+                    alert('Incorrect password!');
+                }
+
+            } else {
+                // Do something if the callback is not approved
+                alert('CloudFlare Verification Failed!');
+            }
+        }
+
+        
+    } else {
+        alert('Invalid URL or expired link!');
+    }
+}
+
+// Function to get URL parameter by name
+function getParameterByName(name, url) {
+    if (!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g, '\\$&');
+    var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, ' '));
+}
+
+// Start the countdown when page loads
+window.onload = function() {
+    var redirectURL = atob(getParameterByName('redirectURL')); // Decrypting the redirect URL
+    startCountdown(Date.parse(atob(getParameterByName('endtime')))); // Start countdown on page load
+}
+
+</script>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+    
+    .container {
+        text-align: center;
+        background-color: #fff;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    h2 {
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+    
+    #days,
+    #hours,
+    #minutes,
+    #seconds {
+        font-weight: bold;
+    }
+    
+    #content {
+        margin-top: 20px;
+    }
+    
+    label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+    }
+    
+    input[type="password"] {
+        padding: 8px;
+        font-size: 16px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    
+    button {
+        padding: 8px 20px;
+        font-size: 16px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        width: 100%;
+    }
+    
+    button:hover {
+        background-color: #0056b3;
+    }
+    .form {
+        display:flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+    
+</style>
+</head>
+<body>
+
+<h2>Anti-Credit Grabber</h2>
+<p>This URL is protected and will be made public soon</p>
+<p>Redirecting in <span id="days"></span> days, <span id="hours"></span> hours, <span id="minutes"></span> minutes, and <span id="seconds"></span> seconds...</p>
+<p id="content"></p>
+
+<!-- Input field for password -->
+<div class="form">
+    <label for="password">Enter password to skip waiting:</label><br>
+    <input type="password" id="password" name="password">
+    <div class="cf-turnstile" data-sitekey="0x4AAAAAAAZ8ktgxixMlMA3P" data-callback="javascriptCallback"></div> 
+    <button  onclick="checkPassword()">Submit</button><br><br>
+</div>
+
+</body>
+</html>

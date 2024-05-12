@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Link Generator</title>
+</head>
+<body>
+
+<h2>Link Generator</h2>
+
+<form id="linkForm">
+    <label for="redirectURL">Redirect URL:</label><br>
+    <input type="text" id="redirectURL" name="redirectURL" placeholder="Enter the redirect URL"><br><br>
+    <label for="endTime">End Time:</label><br>
+    <input type="datetime-local" id="endTime" name="endTime"><br><br>
+    <button type="submit">Generate Link</button>
+</form>
+
+<p id="generatedLink"></p>
+
+<script>
+document.getElementById('linkForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    var redirectURL = document.getElementById('redirectURL').value.trim();
+    var endTime = document.getElementById('endTime').value.trim();
+    
+    if (!redirectURL || !endTime) {
+        alert('Please enter both the redirect URL and end time.');
+        return;
+    }
+
+    var encodedRedirectURL = btoa(redirectURL);
+    var encodedEndTime = btoa(endTime);
+    var formattedEndTime = new Date(endTime).toISOString().slice(0,16).replace("T", " ");
+
+    var redirectPageURL = 'protected.html';
+    var generatedLink = redirectPageURL + '?redirectURL=' + encodedRedirectURL + '&endtime=' + encodedEndTime;
+
+    document.getElementById('generatedLink').innerHTML = '<strong>Generated Link:</strong><br><a href="' + generatedLink + '" target="_blank">' + generatedLink + '</a><br><br><strong>Password (End Time):</strong> ' + formattedEndTime.replace(" ", "T");
+});
+</script>
+
+</body>
+</html>

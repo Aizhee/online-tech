@@ -13,186 +13,337 @@
 	<link rel="icon" href="favicon.ico" type="image/x-icon">
 </head>
 <body>
-	<header>
-		
+	<header class="header">
 		<div class="popup">
 			<div class="popup-content">
 				<img src="" alt="Popup Image" class="popup-image">
-				<span class="close">&times;</span>
+				<p class="instr">tap again to close</p>
 			</div>
 		</div>
-
-		<div class="logo">
-			<a href="#">&nbsp;</a>
+		<div class="header_top_outer">
+			<div class="container header_top">
+				<div class="header_inner">
+					<div class="header_logo">
+						<a href="#">
+							<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+						</a>
+					</div>
+					<div class="menu_container">
+					<nav class="header_menu">
+						<div class="header_menu-btn">
+							<div class="header_menu-row"></div>
+							<div class="header_menu-row"></div>
+							<div class="header_menu-row"></div>
+						</div>
+						<ul>
+							<li>
+								<a href="#HM" >HOME</a>
+							</li>
+							<li>
+								<a href="#AU">ABOUT US</a>
+							</li>
+							<li>
+								<a href="#BL">BLOG</a>
+							</li>
+							<li>
+								<a href="#PF">PORTFOLIO</a>
+							</li>
+							<li>
+								<a href="#CU">CONTACT US</a>
+							</li>
+						</ul>
+					</nav>
+					</div>
+				</div>
+			</div>
 		</div>
-		
-		<nav>
-			<ul class="top-navigation">
-				<li><a href='#'>HOME</a></li>
-				<li><a href='#'>ABOUT US</a></li>
-				<li><a href='#'>BLOG</a></li>
-				<li><a href='#'>PORTFOLIO</a></li>
-				<li class="last"><a href='#'>CONTACT US</a></li>
-			</ul>
-		</nav>
 	</header>
-	<div class="slider-wrapper">
-		<div class="slider">
-			<img class="slider-img" src="img/slider-image.jpg" />
-			<span class="slider-previous-button">&nbsp</span>
-			<span class="slider-next-button">&nbsp</span>
-			<div class="slide-info">
-				<h3 id="slide-title">SLIDE ONE</h3>
-				<p id="slide-desc">Lorem ipsum dolor sit amet, malorum recteque reprehendunt ea vel. Urbanitas adolescens vim te, per at tritani aperiri. Adhuc invenire convenire his ea. </p>
+
+	<section class="slider">
+		<div class="container bkgnd">
+			<div class="bkgnd-decor"></div>
+			<div class="slider_inner">
+				<div class="slider_item slider-first">
+					<div class="slider_info">
+						<div class="slider_title">
+							Slide One
+						</div>
+						<div class="slider_text">
+							Lorem ipsum dolor sit amet, malorum recteque reprehendunt ea vel. Urbanitas adolescens vim te, per at tritani aperiri. Adhuc invenire convenire his ea.
+						</div>
+					</div>
+				</div>
+				<div class="slider_item slider-second">
+					<div class="slider_info">
+						<div class="slider_title">
+							Slide Two
+						</div>
+						<div class="slider_text">
+							Lorem ipsum dolor sit amet, malorum recteque reprehendunt ea vel. Urbanitas adolescens vim te, per at tritani aperiri. Adhuc invenire convenire his ea. 
+						</div>
+					</div>
+				</div>
+				<div class="slider_item slider-third">
+					<div class="slider_info">
+						<div class="slider_title">
+							Slide Three
+						</div>
+						<div class="slider_text">
+							Lorem ipsum dolor sit amet, malorum recteque reprehendunt ea vel. Urbanitas adolescens vim te, per at tritani aperiri. Adhuc invenire convenire his ea. 
+						</div>
+					</div>
+				</div>
+				<div class="slider_item slider-four">
+					<div class="slider_info">
+						<div class="slider_title">
+							Slide Four
+						</div>
+						<div class="slider_text">
+							Lorem ipsum dolor sit amet, malorum recteque reprehendunt ea vel. Urbanitas adolescens vim te, per at tritani aperiri. Adhuc invenire convenire his ea. 
+						</div>
+					</div>			
+				</div>
+				<div class="slider_item slider-fifth">
+					<div class="slider_info">
+						<div class="slider_title">
+							Slide Five
+						</div>
+						<div class="slider_text">
+							Lorem ipsum dolor sit amet, malorum recteque reprehendunt ea vel. Urbanitas adolescens vim te, per at tritani aperiri. Adhuc invenire convenire his ea. 
+						</div>
+					</div>
+				</div>
+				<div class="slider_item slider-six">
+					<div class="slider_info">
+						<div class="slider_title">
+							Slide Six
+						</div>
+						<div class="slider_text">
+							Lorem ipsum dolor sit amet, malorum recteque reprehendunt ea vel. Urbanitas adolescens vim te, per at tritani aperiri. Adhuc invenire convenire his ea. 
+						</div>
+					</div>
+				</div>
 			</div>
-			<ul class="slider-thumbnails">
-				<li class="first"><img src="img/thumbnail-01.jpg" /></li>
-				<li><img src="img/thumbnail-02.jpg" /></li>
-				<li><img src="img/thumbnail-03.jpg" /></li>
-				<li><img src="img/thumbnail-04.jpg" /></li>
-				<li><img src="img/thumbnail-05.jpg" /></li>
-				<li><img src="img/thumbnail-06.jpg" /></li>
-			</ul>
-		</div>
+			<div class="slider_nav">
+				<div class="slider_nav-item slider-first-icon">
+				</div>
+				<div class="slider_nav-item slider-second-icon">
+				</div>
+				<div class="slider_nav-item slider-third-icon">
+				</div>
+				<div class="slider_nav-item slider-four-icon">
+				</div>
+				<div class="slider_nav-item slider-fifth-icon">
+				</div>
+				<div class="slider_nav-item slider-six-icon">
+				</div>
+			</div>
+		</section>
 	</div>
 
+		<!-- Gallery -->
 	<div class="content">
-	<div class="recent-works-heading">
-		<h3>GALLERY </h3>
-		<span class="recent-works-headinglines">
-		</span>
-		<div class="gallery">
-			<img src="img/recent-work-01.jpg" alt="Image 1" class="gallery-image">
-			<img src="img/recent-work-02.jpg" alt="Image 2" class="gallery-image">
-			<img src="img/recent-work-03.jpg" alt="Image 3" class="gallery-image">
-			<img src="img/recent-work-02.jpg" alt="Image 4" class="gallery-image">
-			<img src="img/recent-work-03.jpg" alt="Image 5" class="gallery-image">
+		<div class="container">
+			<div class="works_upper">
+			<div class="works_title">
+				OUR TOP WORKS
+			</div>
+			<span class="recent-works-headinglines"></span>
 		</div>
-	</div>
-	</div>
-
-	<div class="content">
-		<div class="features">
-			<div class="latest-portfolio-items">
-				<h2>CHECK OUT MY LATEST PORTFOLIO ITEMS</h2>
-				<p>Maecenas ipsum metus, semper hendrerit varius mattis, congue sit amet tellus. Aliquam ullamcorper dui sed magna posue re ut elementum enim rutrum. Nam mi erat, porta id ultrices nec, pellentesque vel nunc. Cras varius fermentum iaculis. Aenean sodales nibh non lectus tempor a interdum justo ultricies.</p>
-				<a class="button-orange">MORE</a>
-			</div> 
-			<div class="work">
-				<h2>TOP NOTCH QUALITY WORK &amp; SERVICES</h2>
-				<p>Maecenas ipsum metus, semper hendrerit varius mattis, congue sit amet tellus. Aliquam ullamcorper dui sed magna posue re ut elementum enim rutrum. Nam mi erat, porta id ultrices nec, pellentesque vel nunc. Cras varius fermentum iaculis. Aenean sodales nibh non lectus tempor a interdum justo ultricies.</p>
-				<a class="button-orange">MORE</a>
-			</div> 
-			
-			<div class="connected">
-				<h2>FOLLOW ME ON TWITTER FACEBOOK &amp; PINTEREST</h2>
-				<p>Maecenas ipsum metus, semper hendrerit varius mattis, congue sit amet tellus. Aliquam ullamcorper dui sed magna posue re ut elementum enim rutrum. Nam mi erat, porta id ultrices nec, pellentesque vel nunc. Cras varius fermentum iaculis. Aenean sodales nibh non lectus tempor a interdum justo ultricies.</p>
-				<a class="button-orange">MORE</a>
+			<div class="gallery">
+				<img src="img/gallry/1.png" alt="Image 1" class="gallery-image">
+				<img src="img/gallry/2.png" alt="Image 2" class="gallery-image">
+				<img src="img/gallry/3.png" alt="Image 3" class="gallery-image">
+				<img src="img/gallry/4.png" alt="Image 4" class="gallery-image">
+				<img src="img/gallry/5.png" alt="Image 5" class="gallery-image">
 			</div>
 		</div>
-		
-		<div class="recent-works-heading">
-			<h3>RECENT WORKS</h3>
-			<span class="recent-works-headinglines">
-			</span>
-		</div>
-		
-		<div class="first-work-item">
-				<img src="img/recent-work-01.jpg" />
-				<div class="work-info">
-					<a href="">CHARACTER DESIGN</a>
-					<p class="work-posted">JUNE 15, 2012</p>
-				</div>
-		</div>
-		
-		<div class="work-item">
-				<img src="img/recent-work-02.jpg" />
-				<div class="work-info">
-					<a href="">BROCHURE DESIGN</a>
-					<p class="work-posted">JUNE 15, 2012</p>
-				</div>	
-		</div>
-		
-		<div class="work-item">
-				<img src="img/recent-work-03.jpg" />
-				<div class="work-info">
-					<a href="">SOCIAL MEDIA BUTTON</a>
-					<p class="work-posted">JUNE 15, 2012</p>
-				</div>
-		</div>
-		
-		<div class="last-work-item">
-				<img src="img/recent-work-04.jpg" />
-				<div class="work-info">
-					<a href="">10 AMAZING WEBSITES</a>
-					<p class="work-posted">JUNE 15, 2012</p>
-				</div>
-		</div>
-		<div class="recent-works-heading">
-			<h3>FAQ </h3>
-			<span class="recent-works-headinglines">
-			</span>
-			<div class="accordion">
-				<div class="accordion-header">Privacy Policy and Data Protection<i class="fas fa-plus"></i></div>
-				<div class="accordion-body">
-				  <p>Maecenas ipsum metus, semper hendrerit varius mattis, congue sit amet tellus. Aliquam ullamcorper dui sed magna posue re ut elementum enim rutrum. Nam mi erat, porta id ultrices nec, pellentesque vel nunc. Cras varius fermentum iaculis. Aenean sodales nibh non lectus tempor a interdum justo ultricies.</p>
-				</div>
-			  </div>
-			  
-			  <div class="accordion">
-				<div class="accordion-header">Community Engagement<i class="fas fa-plus"></i></div>
-				<div class="accordion-body">
-				  <p>Maecenas ipsum metus, semper hendrerit varius mattis, congue sit amet tellus. Aliquam ullamcorper dui sed magna posue re ut elementum enim rutrum. Nam mi erat, porta id ultrices nec, pellentesque vel nunc. Cras varius fermentum iaculis. Aenean sodales nibh non lectus tempor a interdum justo ultricies.</p>
-				</div>
-			  </div>
-			  
-			  <div class="accordion">
-				<div class="accordion-header">Content Submission and Feedback<i class="fas fa-plus"></i></div>
-				<div class="accordion-body">
-				  <p>Maecenas ipsum metus, semper hendrerit varius mattis, congue sit amet tellus. Aliquam ullamcorper dui sed magna posue re ut elementum enim rutrum. Nam mi erat, porta id ultrices nec, pellentesque vel nunc. Cras varius fermentum iaculis. Aenean sodales nibh non lectus tempor a interdum justo ultricies.</p>
-				</div>
-			  </div>
-
-			  <div class="accordion">
-				<div class="accordion-header">Copyright and Usage<i class="fas fa-plus"></i></div>
-				<div class="accordion-body">
-				  <p>Maecenas ipsum metus, semper hendrerit varius mattis, congue sit amet tellus. Aliquam ullamcorper dui sed magna posue re ut elementum enim rutrum. Nam mi erat, porta id ultrices nec, pellentesque vel nunc. Cras varius fermentum iaculis. Aenean sodales nibh non lectus tempor a interdum justo ultricies.</p>
-				</div>
-			  </div>
-		</div>
 	</div>
+
+	<section class="content">
+		<div class="container">
+			<div class="content_inner">
+				<div class="content_inner-item ">
+					<div class="item_title icon-gear">
+						Check  out  my  latest
+						portfolio  items
+					</div>
+					<div class="item_text">
+						Maecenas ipsum metus, semper hendrerit varius mattis, congue sit amet tellus. Aliquam ullamcorper dui sed magna posue re ut elementum enim rutrum. Nam mi erat, porta id ultrices nec, pellentesque vel nunc. Cras varius fermentum iaculis. Aenean sodales nibh non lectus tempor a interdum justo ultricies.
+					</div>
+					<div class="item_link latest-link"><a href="#">More</a></div>
+				</div>
+				<div class="content_inner-item ">
+					<div class="item_title icon-tick">
+						Offer  Top  Notch  Quality  
+						Work  &  Services
+					</div>
+					<div class="item_text">
+						Maecenas ipsum metus, semper hendrerit varius mattis, congue sit amet tellus. Aliquam ullamcorper dui sed magna posue re ut elementum enim rutrum. Nam mi erat, porta id ultrices nec, pellentesque vel nunc. Cras varius fermentum iaculis. Aenean sodales nibh non lectus tempor a interdum justo ultricies.
+					</div>
+					<div class="item_link top-link"><a href="#">More</a></div>
+				</div>
+				<div class="content_inner-item ">
+					<div class="item_title icon-man">
+						Follow  Me  on  Twitter,  
+						Facebook  &  Pinterest
+					</div>
+					<div class="item_text">
+						Maecenas ipsum metus, semper hendrerit varius mattis, congue sit amet tellus. Aliquam ullamcorper dui sed magna posue re ut elementum enim rutrum. Nam mi erat, porta id ultrices nec, pellentesque vel nunc. Cras varius fermentum iaculis. Aenean sodales nibh non lectus tempor a interdum justo ultricies.
+					</div>
+					<div class="item_link man-link"><a href="#">More</a></div>
+				</div>
+
+			</div>
+		</div>
+	</section>
+
+
+	<section class="works">
+		<div class="container">
+			<div class="works_upper">
+				<div class="works_title">
+					recent works
+				</div>
+				<span class="recent-works-headinglines"></span>
+			</div>
+			<div class="works_bottom">
+
+				<div class="works_item">
+					
+					<div class="carousely">
+						<img src="img/recent-work-01.jpg" alt="">
+						<img src="img/crsl/chardes/2.png" alt="">
+						<img src="img/crsl/chardes/3.png" alt="">
+					</div>
+					<div class="works_item-name">Character  Design<span>June 15, 2012</span></div> 
+				</div>
+				<div class="works_item">
+					<div class="carousely">
+						<img src="img/recent-work-02.jpg" alt="">
+						<img src="img/crsl/brshr/2.png" alt="">
+						<img src="img/crsl/brshr/3.png" alt="">
+					</div>
+					<div class="works_item-name">Brochure  Design<span>June 15, 2012</span></div> 
+				</div>
+				<div class="works_item">
+					<div class="carousely">
+						<img src="img/recent-work-03.jpg" alt="">
+						<img src="img/crsl/socmedbut/2.png" alt="">
+						<img src="img/crsl/socmedbut/3.png" alt="">
+					</div>
+					<div class="works_item-name">Social Media Buttons<span>June 15, 2012</span></div> 
+				</div>
+				<div class="works_item">
+					<div class="carousely">
+						<img src="img/recent-work-04.jpg" alt="">
+						<img src="img/crsl/wbst/1.png" alt="">
+						<img src="img/crsl/wbst/2.png" alt="">
+					</div>
+					<div class="works_item-name">10 Amazing Websites<span>June 15, 2012</span></div> 
+				</div>
+
+			</div>
+		</div>
+	</section>
 	
-	<footer>
-		<div class="footer-wrapper">
-			<div class="footer-about">
-				<h3>ABOUT JETRO</h3>
-				<p>Lorem ipsum dolor sit amet, malorum recteque reprehendunt ea vel. Urbanitas adolescens vim te, per at tritani aperiri. Adhuc invenire convenire his ea. Id mei vitae denique, in eam commodo veritus disputando. </p>
-				<p>Pro et erant delicata, eu vim essent imperdiet accommodare, dictas deseruisse ius an. Solet everti definitionem id ius, sonet oporteat cu vim.</p>
+	<div class="recent-works-heading">
+		<div class="container">
+			<div class="works_upper">
+			<div class="works_title">
+				TERMS OF USE
 			</div>
-			
-			<div class="footer-twitter">
-				<h3>TWITTER WIDGET</h3>
-				<p class="twitter-post"><a href="#" class="twitter-user">@pixelmater</a>What an awesome design with great functionality :)</p>
-				<p class="twitter-post-time">About 1 hour ago</p>
-				<p class="twitter-post"><a href="#"  class="twitter-user">@pixelmater</a>What an awesome design with great functionality :)</p>
-				<p class="twitter-post-time">About 2 hours ago</p>
-				
-				<p class="twitter-follow">Follow <a href="#" class="twitter-user">@pintarprogramming</a></p>
+			<span class="recent-works-headinglines"></span>
 			</div>
-			
-			<div class="footer-contact">
-				<h3>CONTACT US</h3>
-				<p>Lorem ipsum dolor sit amet, malorum recteque reprehendunt ea vel. Urbanitas adolescens vim te, per at tritani aperiri. Adhuc invenire convenire his ea. Id mei vitae denique, in eam commodo veritus disputando. </p>
-				<p>information@jetro.com<br /> 1.222.333.4444</p>
-				<ul class="social-icons">
-					<li class="icon-facebook"><a href="#">&nbsp;</a></li>
-					<li class="icon-twitter"><a href="#">&nbsp;</a></li>
-					<li class="icon-email"><a href="#">&nbsp;</a></li>
-					<li class="icon-rss"><a href="#">&nbsp;</a></li>
-					<li class="icon-vimeo"><a href="#">&nbsp;</a></li>
-				</ul>
+			<div id="descrptou" class="item_text">Terms of use are the rules, specifications, and requirements for the use of a product or service. They serve as a contract between the product or service provider and user. In addition to the definition above, a terms of use agreement: Limits the liabilities that fall on your company.</div>
+			<div class="accordion">
+			<div class="accordion-header">Privacy Policy and Data Protection<i class="fas fa-plus"></i></div>
+			<div class="accordion-body ">
+			  <p>Maecenas ipsum metus, semper hendrerit varius mattis, congue sit amet tellus. Aliquam ullamcorper dui sed magna posue re ut elementum enim rutrum. Nam mi erat, porta id ultrices nec, pellentesque vel nunc. Cras varius fermentum iaculis. Aenean sodales nibh non lectus tempor a interdum justo ultricies.</p>
 			</div>
 		</div>
+		
+		<div class="accordion">
+			<div class="accordion-header">Community Engagement<i class="fas fa-plus"></i></div>
+			<div class="accordion-body ">
+				<p>Maecenas ipsum metus, semper hendrerit varius mattis, congue sit amet tellus. Aliquam ullamcorper dui sed magna posue re ut elementum enim rutrum. Nam mi erat, porta id ultrices nec, pellentesque vel nunc. Cras varius fermentum iaculis. Aenean sodales nibh non lectus tempor a interdum justo ultricies.</p>
+			</div>
+		</div>
+		  
+		<div class="accordion">
+			<div class="accordion-header">Content Submission and Feedback<i class="fas fa-plus"></i></div>
+			<div class="accordion-body">
+			  <p>Maecenas ipsum metus, semper hendrerit varius mattis, congue sit amet tellus. Aliquam ullamcorper dui sed magna posue re ut elementum enim rutrum. Nam mi erat, porta id ultrices nec, pellentesque vel nunc. Cras varius fermentum iaculis. Aenean sodales nibh non lectus tempor a interdum justo ultricies.</p>
+			</div>
+		</div>
+
+		<div class="accordion">
+			<div class="accordion-header">Copyright and Usage<i class="fas fa-plus"></i></div>
+			<div class="accordion-body">
+			  <p>Maecenas ipsum metus, semper hendrerit varius mattis, congue sit amet tellus. Aliquam ullamcorper dui sed magna posue re ut elementum enim rutrum. Nam mi erat, porta id ultrices nec, pellentesque vel nunc. Cras varius fermentum iaculis. Aenean sodales nibh non lectus tempor a interdum justo ultricies.</p>
+			</div>
+		</div>
+	</div>  
+		
+	</div>
+
+	<footer class="footer">
+		<div class="container bkgnd-f">
+				<div class="footer_inner">
+
+					<div class="footer_item footer-content">
+						<div class="footer_item-title">
+							About  Jetro
+						</div>
+						<div class="footer_item-text">
+							Lorem ipsum dolor sit amet, malorum recteque reprehendunt ea vel. Urbanitas adolescens vim te, per at tritani aperiri. Adhuc invenire convenire his ea. Id mei vitae denique, in eam commodo veritus disputando. 
+						</div>
+						<div class="item_under-text">
+							Pro et erant delicata, eu vim essent imperdiet accommodare, dictas deseruisse ius an. Solet everti definitionem id ius, sonet oporteat cu vim.
+						</div>
+					</div>
+
+					<div class="footer_item footer-notes">
+						<div class="footer_item-title">
+							Twitter  Widget
+						</div>
+						<div class="footer_item-notes">
+							<div class="autor-note">
+								<span>@pixelmater</span> What an awesome design with great functionality :)
+							</div>
+							<div class="time">
+								about 1 hour ago
+							</div>
+							<div class="autor-note">
+								<span>@pixelmater</span> What an awesome design with great functionality :)
+							</div>
+							<div class="time">
+								about 2 hour ago
+							</div>
+							<div class="follow-link">Follow <a href="#">@bestpsdfreebies</a></div>
+
+						</div>
+					</div>
+					<div class="footer_item footer-contact">
+						<div class="footer_item-title">
+							Contact  Us
+						</div>
+						<div class="footer_item-contact">
+							Lorem ipsum dolor sit amet, malorum recteque reprehendunt ea vel. Urbanitas adolescens vim te, per at tritani aperiri. 
+
+							<span>information@jetro.com<br>
+							1.222.333.4444</span>
+						</div>
+						<div class="footer_link">
+							<a href="#"><img src="img/social-facebook.png" alt=""></a>
+							<a href="#"><img src="img/social-twitter.png" alt=""></a>
+							<a href="#"><img src="img/social-email.png" alt=""></a>
+							<a href="#"><img src="img/social-rss.png" alt=""></a>
+							<a href="#"><img src="img/social-vimeo.png" alt=""></a>
+						</div>
+					</div>
+				</div>
+		</div>	
 	</footer>
 
 </body>
