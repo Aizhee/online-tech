@@ -991,7 +991,10 @@ html {
 		margin-left: 0;
 		right: 0;
 		width: 100%;
-		border-bottom: 5px solid #e8603c;
+		/* border-bottom: 5px solid #e8603c; */
+	}
+	.header_menu li a{
+		width: 100%;
 	}
 
 	.header_menu li {
@@ -1001,9 +1004,27 @@ html {
 		padding: 7px;
 	}
 
+	.header_menu li:first-child {
+		border-top: 2px solid #e7e7e7;
+	}
 	.header_menu li+li {
 		margin-left: 0;
-		border-top: 1px solid #e7e7e7;
+		border-top: 2px solid #e7e7e7;
+		
+	}
+
+	.header_menu li:last-of-type {
+		box-shadow: 0 10px 11px -11px gray;
+		border-bottom: #e7e7e7 5px solid;
+	}
+
+	.header_menu li:hover  {
+		background-color: #e8603c;
+	}
+
+	.header_menu li:hover a {
+		background-color: #e8603c;
+		color: white;
 	}
 
 	.header_menu a{
