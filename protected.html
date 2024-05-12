@@ -43,6 +43,16 @@ function startCountdown(endTime) {
     updateCountdown();
     var timerInterval = setInterval(updateCountdown, 1000);
 }
+var captchaStatus = false;
+
+function javascriptCallback(response) {
+    if (response){
+        captchaStatus = true;
+    } else {
+        alert('Please complete the captcha');
+
+    }      
+}
 
 // Function to check password and start countdown if correct
 function checkPassword() {
@@ -52,22 +62,17 @@ function checkPassword() {
     if (password && Date.parse(password)) { 
         // Validating the password (end time)
         var userPassword = document.getElementById('password').value.trim(); // Getting user-entered password
-        function javascriptCallback(response) {
-            var isApproved = response === true; // Assuming the response is a boolean value indicating approval
-            if (isApproved) {
-                if (userPassword === password) {
-                    document.getElementById('content').innerHTML = `Didn't Redirect? Click here: <a href="`+redirectURL+`">Go to website</a>`; // Message after countdown
-                    window.location.href = redirectURL; // Redirect URL after countdown
-                } else {
-                    alert('Incorrect password!');
-                }
-
-            } else {
-                // Do something if the callback is not approved
-                alert('CloudFlare Verification Failed!');
-            }
+        if (captchaStatus == false) {
+            alert('Please complete the captcha');
+            return;
         }
 
+        if (userPassword === password) {
+            document.getElementById('content').innerHTML = `Didn't Redirect? Click here: <a href="`+redirectURL+`">Go to website</a>`; // Message after countdown
+            window.location.href = redirectURL; // Redirect URL after countdown
+        } else {
+            alert('Incorrect password!');
+        }
         
     } else {
         alert('Invalid URL or expired link!');
