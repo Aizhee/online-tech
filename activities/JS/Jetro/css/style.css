@@ -243,9 +243,6 @@ html {
 	font-weight: 400;
   }
   
-  .header_menu > ul > li:first-child a {
-	color: #e8603c;
-  }
   
   .header_menu a:hover{
 	  color: #e8603c;
@@ -630,16 +627,21 @@ html {
   }
   
   .works_item-name {
+	font-family: "Bebas Neue", cursive;
+	font-weight: 100;
+	letter-spacing: 1px;
 	padding-top: 16px;
 	padding-left: 13px;
 	padding-bottom: 13px;
 	color: #b9b9b9;
-	font-size: 16px;
+	font-size: 20px;
 	border: 1px solid #dbdbdb;
 	border-top: none;
   }
   
   .works_item-name span {
+	font-size: 16px;
+	letter-spacing: 0px;
 	display: block;
 	font-family: "Bebas Neue", cursive;
 	color: #e8663c;
