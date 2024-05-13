@@ -175,6 +175,11 @@ $(document).ready(function(){
       
 });
 
+// prevent inspect element
+document.addEventListener('contextmenu', function(e) {
+  e.preventDefault();
+});
+
 //Slick.js for slider (still uses jQuery, sana pwede po hehe)
 (function (factory) {
     "use strict";
