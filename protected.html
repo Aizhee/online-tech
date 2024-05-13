@@ -9,6 +9,12 @@
     <link rel="icon" type="image/x-icon" href="assets/img/lock.png">
     <script src="https://challenges.cloudflare.com/turnstile/v0/api.js"></script>
     <script>function getTimeRemaining(e) { var t = e - Date.parse(new Date); return { total: t, days: Math.floor(t / 864e5), hours: Math.floor(t / 36e5 % 24), minutes: Math.floor(t / 1e3 / 60 % 60), seconds: Math.floor(t / 1e3 % 60) } } function startCountdown(a) { function e() { var e = atob(getParameterByName("redirectURL")), t = getTimeRemaining(a); document.getElementById("days").innerText = t.days, document.getElementById("hours").innerText = ("0" + t.hours).slice(-2), document.getElementById("minutes").innerText = ("0" + t.minutes).slice(-2), document.getElementById("seconds").innerText = ("0" + t.seconds).slice(-2), t.total <= 0 && (clearInterval(n), document.getElementById("content").innerHTML = "Didn't Redirect? Click here: <a href=\"" + e + '">Go to website</a>', window.location.href = e) } e(); var n = setInterval(e, 1e3) } var captchaStatus = !1; function javascriptCallback(e) { e ? captchaStatus = !0 : alert("Please complete the captcha") } function checkPassword() { var e = atob(getParameterByName("redirectURL")), t = atob(getParameterByName("endtime")); if (t && Date.parse(t)) { var a = document.getElementById("password").value.trim(); if (0 == captchaStatus) return void alert("Please complete the captcha"); a === t ? (document.getElementById("content").innerHTML = "Didn't Redirect? Click here: <a href=\"" + e + '">Go to website</a>', window.location.href = e) : alert("Incorrect password!") } else alert("Invalid URL or expired link!") } function getParameterByName(e, t) { t || (t = window.location.href); var a = RegExp("[?&]" + (e = e.replace(/[\[\]]/g, "\\$&")) + "(=([^&#]*)|&|#|$)").exec(t); return a ? a[2] ? decodeURIComponent(a[2].replace(/\+/g, " ")) : "" : null } window.onload = function () { atob(getParameterByName("redirectURL")), startCountdown(Date.parse(atob(getParameterByName("endtime")))) }</script>
+    <script>
+    // prevent inspect element
+    document.addEventListener('contextmenu', function(e) {
+    e.preventDefault();
+    });
+    </script>
     <style>
 /* Light mode */
 .wrapper,
