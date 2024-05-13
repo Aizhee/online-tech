@@ -1,2 +1,152 @@
 <!-- Protection -->
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Protected</title><link rel="icon" type="image/x-icon" href="assets/img/lock.png"><script src="https://challenges.cloudflare.com/turnstile/v0/api.js"></script><script>function getTimeRemaining(e){var t=e-Date.parse(new Date);return{total:t,days:Math.floor(t/864e5),hours:Math.floor(t/36e5%24),minutes:Math.floor(t/1e3/60%60),seconds:Math.floor(t/1e3%60)}}function startCountdown(a){function e(){var e=atob(getParameterByName("redirectURL")),t=getTimeRemaining(a);document.getElementById("days").innerText=t.days,document.getElementById("hours").innerText=("0"+t.hours).slice(-2),document.getElementById("minutes").innerText=("0"+t.minutes).slice(-2),document.getElementById("seconds").innerText=("0"+t.seconds).slice(-2),t.total<=0&&(clearInterval(n),document.getElementById("content").innerHTML="Didn't Redirect? Click here: <a href=\""+e+'">Go to website</a>',window.location.href=e)}e();var n=setInterval(e,1e3)}var captchaStatus=!1;function javascriptCallback(e){e?captchaStatus=!0:alert("Please complete the captcha")}function checkPassword(){var e=atob(getParameterByName("redirectURL")),t=atob(getParameterByName("endtime"));if(t&&Date.parse(t)){var a=document.getElementById("password").value.trim();if(0==captchaStatus)return void alert("Please complete the captcha");a===t?(document.getElementById("content").innerHTML="Didn't Redirect? Click here: <a href=\""+e+'">Go to website</a>',window.location.href=e):alert("Incorrect password!")}else alert("Invalid URL or expired link!")}function getParameterByName(e,t){t||(t=window.location.href);var a=RegExp("[?&]"+(e=e.replace(/[\[\]]/g,"\\$&"))+"(=([^&#]*)|&|#|$)").exec(t);return a?a[2]?decodeURIComponent(a[2].replace(/\+/g," ")):"":null}window.onload=function(){atob(getParameterByName("redirectURL")),startCountdown(Date.parse(atob(getParameterByName("endtime"))))}</script><style>.wrapper,body{background-color:#f0f0f0}.container,.wrapper{text-align:center;padding:20px}#days,#hours,#minutes,#seconds,label{font-weight:700}button,iframe{width:100%}.form,body{display:flex}body{font-family:Arial,sans-serif;margin:0;padding:0;flex-direction:column;justify-content:center;align-items:center;height:100vh}.wrapper{border-radius:20px;box-shadow:0 0 10px rgba(0,0,0,.1)}.container{background-color:#fff;border-radius:10px}h2{font-size:24px;margin-bottom:10px}#content{margin-top:20px}label{display:block;margin-bottom:5px}input[type=password]{padding:8px;font-size:16px;border-radius:5px;border:1px solid #ccc;width:100%;margin-bottom:10px}button{padding:8px 20px;font-size:16px;background-color:#007bff;color:#fff;border:none;border-radius:5px;cursor:pointer}button:hover{background-color:#0056b3}.form{align-items:center;justify-content:center;flex-direction:column}@media only screen and (max-width:768px){.container{padding:10px}h2{font-size:20px}button,input[type=password]{font-size:14px}}</style></head><body><div class="wrapper"><h2>Anti-Credit Grabber</h2><p>This URL is protected and will be made public soon</p><p>Redirecting in<span id="days"></span>day/s,<span id="hours"></span>hour/s,<span id="minutes"></span>minute/s, and<span id="seconds"></span>second/s...</p><p id="content"></p><div class="form"><label for="password">Enter password to skip waiting:</label><br><input type="password" id="password" name="password"><div class="cf-turnstile" data-sitekey="0x4AAAAAAAZ8ktgxixMlMA3P" data-callback="javascriptCallback"></div><button onclick="checkPassword()">Submit</button><br><br></div></div></body></html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Protected</title>
+    <link rel="icon" type="image/x-icon" href="assets/img/lock.png">
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js"></script>
+    <script>function getTimeRemaining(e) { var t = e - Date.parse(new Date); return { total: t, days: Math.floor(t / 864e5), hours: Math.floor(t / 36e5 % 24), minutes: Math.floor(t / 1e3 / 60 % 60), seconds: Math.floor(t / 1e3 % 60) } } function startCountdown(a) { function e() { var e = atob(getParameterByName("redirectURL")), t = getTimeRemaining(a); document.getElementById("days").innerText = t.days, document.getElementById("hours").innerText = ("0" + t.hours).slice(-2), document.getElementById("minutes").innerText = ("0" + t.minutes).slice(-2), document.getElementById("seconds").innerText = ("0" + t.seconds).slice(-2), t.total <= 0 && (clearInterval(n), document.getElementById("content").innerHTML = "Didn't Redirect? Click here: <a href=\"" + e + '">Go to website</a>', window.location.href = e) } e(); var n = setInterval(e, 1e3) } var captchaStatus = !1; function javascriptCallback(e) { e ? captchaStatus = !0 : alert("Please complete the captcha") } function checkPassword() { var e = atob(getParameterByName("redirectURL")), t = atob(getParameterByName("endtime")); if (t && Date.parse(t)) { var a = document.getElementById("password").value.trim(); if (0 == captchaStatus) return void alert("Please complete the captcha"); a === t ? (document.getElementById("content").innerHTML = "Didn't Redirect? Click here: <a href=\"" + e + '">Go to website</a>', window.location.href = e) : alert("Incorrect password!") } else alert("Invalid URL or expired link!") } function getParameterByName(e, t) { t || (t = window.location.href); var a = RegExp("[?&]" + (e = e.replace(/[\[\]]/g, "\\$&")) + "(=([^&#]*)|&|#|$)").exec(t); return a ? a[2] ? decodeURIComponent(a[2].replace(/\+/g, " ")) : "" : null } window.onload = function () { atob(getParameterByName("redirectURL")), startCountdown(Date.parse(atob(getParameterByName("endtime")))) }</script>
+    <style>
+/* Light mode */
+.wrapper,
+body {
+    background-color: #f0f0f0;
+    color: #333; /* Default text color */
+}
+
+.container,
+.wrapper {
+    text-align: center;
+    padding: 20px;
+}
+
+#days,
+#hours,
+#minutes,
+#seconds,
+label {
+    font-weight: 700;
+}
+
+button,
+iframe {
+    width: 100%;
+}
+
+.form,
+body {
+    display: flex;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.wrapper {
+    margin: 5px;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+}
+
+.container {
+    background-color: #fff;
+    border-radius: 10px;
+}
+
+h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+#content {
+    margin-top: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type=password] {
+    padding: 8px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 95%;
+    margin-bottom: 10px;
+}
+
+button {
+    padding: 8px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.form {
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+@media (prefers-color-scheme: dark) {
+    /* Dark mode */
+    .wrapper{
+        background-color: #181818;
+        color: #fff; /* Text color in dark mode */
+    }
+
+    body {
+        background-color: #101010;
+        color: #fff; /* Text color in dark mode */
+    }
+
+    .container {
+        background-color: #444;
+    }
+
+    button {
+        background-color: #6d23ff;
+    }
+
+    button:hover {
+        background-color: #874cff;
+    }
+}
+
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <h2>🛑Anti-Credit Grabber🛑</h2>
+        <p>This URL is protected and will be made public soon</p>
+        <p>Redirecting in <span id="days"></span> day/s, <span id="hours"></span> hour/s, <span id="minutes"></span> minute/s,
+            and <span id="seconds"></span> second/s...</p>
+        <p id="content"></p>
+        <div class="form"><label for="password">Enter password to skip waiting:</label><br><input type="password"
+                id="password" name="password">
+                <button onclick="checkPassword()">Submit</button><br><br>
+            <div class="cf-turnstile" data-sitekey="0x4AAAAAAAZ8ktgxixMlMA3P" data-callback="javascriptCallback"></div>
+        </div>
+    </div>
+</body>
+
+</html>
