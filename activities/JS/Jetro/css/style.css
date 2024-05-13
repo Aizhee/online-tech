@@ -23,6 +23,52 @@
 
 }
 
+:root {
+	--background_buttons:rgba(0, 0, 0, 0.693);
+	--deg-ree:280deg;
+	--display-gradient:none;
+}
+
+ /* Gradiend overlay on hover  */
+.slider_inner::before {
+	display: var(--display-gradient);
+	position: absolute;
+	content: "";
+	height: 400px;
+	width: 100%;
+	border-radius: 10px 10px 10px 10px;
+	z-index: 1;
+	
+    background-color: var(--background_buttons);
+    background: linear-gradient(var(--deg-ree), var(--background_buttons) 0%, rgba(0,255,0,0) 80%);
+
+	-webkit-border-radius: 10px 10px 10px 10px;
+	-moz-border-radius: 10px 10px 10px 10px;
+	-ms-border-radius: 10px 10px 10px 10px;
+	-o-border-radius: 10px 10px 10px 10px;
+}
+
+/* Remove Light Blue Color When Tapping */
+.noSelect {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.noSelect:focus {
+    outline: none;
+}
+/* Remove Dragging for Images */
+img {
+	-webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+}
+
 body {
 	background-image: url(../img/bg/background.png);
 }
@@ -943,7 +989,7 @@ html {
 		padding-right: 0;
 		width: 100%;
 		margin-bottom: 35px;
-		border-bottom: 1px solid #e8663c;
+		border-bottom: 2px solid #e8663c;
 	}
 	.item_title{
 		display: flex;
@@ -1069,7 +1115,13 @@ html {
 		width: 100%;
 		left: 0;
 	}
-
+	.slider_inner::before{
+		border-radius: 10px 10px 0 0;
+		-webkit-border-radius: 10px 10px 0 0;
+		-moz-border-radius: 10px 10px 0 0;
+		-ms-border-radius: 10px 10px 0 0;
+		-o-border-radius: 10px 10px 0 0;
+	}
 }
 
 @media(max-width: 500px){

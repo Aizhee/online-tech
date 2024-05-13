@@ -1,4 +1,5 @@
 $(document).ready(function(){
+  
     // Open the first accordion section by default
     var firstAccordionBody = $('.accordion-body').eq(0);
     firstAccordionBody.slideDown();
@@ -45,6 +46,22 @@ $(document).ready(function(){
             headerTopOuter.removeClass('add_shadow');
         }
     });
+
+    // Add gradient on hover for slick arrows
+    $(document).on('mouseenter', '.slick-prev', function() {
+      $(':root').css('--display-gradient', 'block');
+      $(':root').css('--deg-ree', '90deg');
+      }).on('mouseleave', '.slick-arrow.slick-prev', function() {
+          $(':root').css('--display-gradient', 'none');
+      });
+
+      $(document).on('mouseenter', '.slick-next', function() {
+          $(':root').css('--display-gradient', 'block');
+          $(':root').css('--deg-ree', '280deg');
+          console.log('Next arrow hovered');
+      }).on('mouseleave', '.slick-arrow.slick-next', function() {
+        $(':root').css('--display-gradient', 'none');
+      });
 
     //Main slider function using slick.js
     $(function () {
@@ -154,6 +171,8 @@ $(document).ready(function(){
         }   , function() {
         $(':root').css('--manAnim', 'none');
       });
+
+      
 });
 
 //Slick.js for slider (still uses jQuery, sana pwede po hehe)
@@ -2514,5 +2533,6 @@ $(document).ready(function(){
       }
       return _;
     };
+    
 });
   
