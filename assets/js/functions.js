@@ -62,6 +62,14 @@ $( document ).ready(function() {
 
   });
 
+  $('.header--logo').click(function(){
+
+    var curActive = $('.side-nav').find('.is-active'),
+        curPos = $('.side-nav').children().index(curActive);
+    updateNavs(0);
+    updateContent(curPos, 0, 0);
+  });
+
   // swipe support for touch devices
   var targetElement = document.getElementById('viewport'),
       mc = new Hammer(targetElement);
