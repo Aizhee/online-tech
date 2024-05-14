@@ -93,7 +93,7 @@ $( document ).ready(function() {
   function updateHelper(param) {
 
     var curActive = $('.side-nav').find('.is-active'),
-        curPos = $('.side-nav').children().index(curActive),
+        curPos = $('.side-nav').children().index(curActive)-1,
         lastItem = $('.side-nav').children().length - 1,
         nextPos = 0;
 
