@@ -144,7 +144,6 @@ function updateUIWithLatestCommit() {
 
 // Fetch commits for both repositories and update the latest commit
 fetchAndUpdateLatestCommit('https://api.github.com/repos/Aizhee/online-tech/commits');
-fetchAndUpdateLatestCommit('https://api.github.com/repos/Aizhee/phpsql-server/commits');
 
 // After both repositories' commits have been fetched, update the UI with the latest commit
 setTimeout(updateUIWithLatestCommit, 2000); // Adjust the delay as needed
