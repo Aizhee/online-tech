@@ -1,2 +1,131 @@
-<!-- Generate Links -->
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Link Generator</title></head><body><h2>Link Generator</h2><form id="linkForm"><label for="redirectURL">Redirect URL:</label><br><input type="text" id="redirectURL" name="redirectURL" placeholder="Enter the redirect URL"><br><br><label for="endTime">End Time:</label><br><input type="datetime-local" id="endTime" name="endTime"><br><br><button type="submit">Generate Link</button></form><p id="generatedLink"></p><script>document.getElementById("linkForm").addEventListener("submit",function(e){e.preventDefault();var t=document.getElementById("redirectURL").value.trim(),n=document.getElementById("endTime").value.trim();if(t&&n){var r=btoa(t),d=btoa(n),a=new Date(n).toISOString().slice(0,16).replace("T"," "),i="protected.html?redirectURL="+r+"&endtime="+d;document.getElementById("generatedLink").innerHTML='<strong>Generated Link:</strong><br><a href="'+i+'" target="_blank">'+i+"</a><br><br><strong>Password (End Time):</strong> "+a.replace(" ","T")}else alert("Please enter both the redirect URL and end time.")})</script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Encoder and Generator</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    margin-top: 0;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-top: 10px;
+}
+
+input {
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    margin-top: 20px;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+#generatedUrl, #result {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+    display: none;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>URL Encoder and Generator</h1>
+        <form id="urlForm">
+            <label for="url">URL:</label>
+            <input type="text" id="url" name="url" required>
+            
+            <label for="time">Time (ISO format):</label>
+            <input type="datetime-local" id="time" name="time" required>
+            
+            <button type="submit">Generate Encoded URL</button>
+        </form>
+        <textarea id="generatedUrl"></textarea>
+        <textarea id="result"></textarea>
+    </div>
+    <script>
+        document.getElementById('urlForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    
+    const url = document.getElementById('url').value;
+    const time = document.getElementById('time').value;
+    
+    const payload = JSON.stringify({ url, time });
+    const encodedUrl = btoa(payload);
+
+    // Generate encoded URL for sharing
+    const generatedUrl = `https://aizhee.github.io/online-tech/protected.html${window.location.pathname}?encodedUrl=${encodedUrl}`;
+    document.getElementById('generatedUrl').innerText = `Generated URL: ${generatedUrl}`;
+    document.getElementById('generatedUrl').style.display = 'block';
+    
+    // Decode and display the URL and time
+    fetch(`https://proturl.netlify.app/api/?encodedUrl=${encodedUrl}`)
+        .then(response => response.json())
+        .then(result => {
+            if (result.url) {
+                document.getElementById('result').innerText = `URL: ${result.url}, Time: ${result.time}`;
+            } else {
+                document.getElementById('result').innerText = `URL is not available until: ${result.time}`;
+            }
+        })
+        .catch(error => {
+            document.getElementById('result').innerText = `Error: ${error.message}`;
+        });
+});
+
+// Check for encodedUrl parameter in URL and decode it
+document.addEventListener('DOMContentLoaded', () => {
+    const params = new URLSearchParams(window.location.search);
+    const encodedUrl = params.get('encodedUrl');
+
+    if (encodedUrl) {
+        const decodedPayload = JSON.parse(atob(encodedUrl));
+        const url = decodedPayload.url;
+        const time = decodedPayload.time;
+
+        document.getElementById('result').innerText = `Decoded URL: ${url}, Time: ${time}`;
+    }
+});
+
+    </script>
+</body>
+</html>
