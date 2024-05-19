@@ -50,6 +50,7 @@
 
     async function fetchDecodedData(encodedUrl) {
         try {
+            console.log(encodedUrl);
             const response = await fetch(`https://proturl.netlify.app/api/?encodedUrl=${encodedUrl}`);
             const data = await response.json();
             if (response.ok) {
