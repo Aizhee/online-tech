@@ -93,7 +93,7 @@ button:hover {
     const encodedUrl = btoa(payload);
 
     // Generate encoded URL for sharing
-    const generatedUrl = `https://aizhee.github.io/online-tech/protected.html${window.location.pathname}?encodedUrl=${encodedUrl}`;
+    const generatedUrl = `https://aizhee.github.io/online-tech/protected.html?encodedUrl=${encodedUrl}`;
     document.getElementById('generatedUrl').innerText = `Generated URL: ${generatedUrl}`;
     document.getElementById('generatedUrl').style.display = 'block';
     
