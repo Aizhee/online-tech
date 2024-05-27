@@ -21,12 +21,19 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const database = getDatabase(app);
 const auth = getAuth(app);
+const database = getDatabase(app);
 
 // Authenticate anonymously
 signInAnonymously(auth).catch(error => {
   console.error("Authentication error:", error);
+});
+
+//on successfull authentication console log the user
+auth.onAuthStateChanged(user => {
+  if (user) {
+    console.log("Authenticated user:", user.uid);
+  }
 });
 
 // Get IP address using a more secure method
