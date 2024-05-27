@@ -1,6 +1,7 @@
 // Firebase functions to store IP address, count unique IP addresses, and count page views
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-app.js";
-import { getDatabase, ref, push, get, set } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-database.js";
+import { getDatabase, ref, push, get, set, increment } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-database.js";
+import { getAuth, signInAnonymously } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-auth.js";
 
 //fetch api key from https://proturl.netlify.app/apikeys/?key=FIREBASE_KEY
 const response = await fetch(`https://proturl.netlify.app/apikeys/?key=FIREBASE_KEY`);
@@ -21,8 +22,14 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
+const auth = getAuth(app);
 
-// Get IP address using api.apify.org in JSON format
+// Authenticate anonymously
+signInAnonymously(auth).catch(error => {
+  console.error("Authentication error:", error);
+});
+
+// Get IP address using a more secure method
 async function getIP() {
   const response = await fetch('https://api.apify.com/v2/browser-info');
   const data = await response.json();
@@ -32,7 +39,7 @@ async function getIP() {
 // Store IP address in Firebase database
 async function storeIP(ip) {
   const ipRef = ref(database, 'ip');
-  push(ipRef, ip);
+  push(ipRef, { ip: ip, timestamp: Date.now() });
 }
 
 function formatNumber(num) {
@@ -52,7 +59,7 @@ async function countIP() {
   const snapshot = await get(ipRef);
   const data = snapshot.val();
   if (data) {
-    const uniqueIps = new Set(Object.values(data));
+    const uniqueIps = new Set(Object.values(data).map(entry => entry.ip));
     let size = uniqueIps.size;
     return formatNumber(size);
   } else {
@@ -62,18 +69,18 @@ async function countIP() {
 
 // Count page views
 async function countPageViews() {
-  const pageViewRef = ref(database, 'page-views');
+  const pageViewRef = ref(database, 'page-views/count');
   const snapshot = await get(pageViewRef);
   const data = snapshot.val();
-  let datacount = data ? data.count : 0;
-  set(ref(database, 'page-views/count'), datacount + 1);
-  return formatNumber(datacount);
+  let datacount = data ? data : 0;
+  await set(ref(database, 'page-views/count'), increment(1));
+  return formatNumber(datacount + 1);
 }
 
 // Update page views
 async function updatePageViews() {
-  const [formattedSizee, formattedCountt] = await Promise.all([countIP(), countPageViews()]);
-  document.getElementById('view-count').innerHTML = `<span class="tooltiptext"> ` + formattedSizee +` views | `+ formattedCountt +` visits</span><i class="fa-solid fa-eye"></i> ` + formattedSizee + " | " + formattedCountt;
+  const [formattedSize, formattedCount] = await Promise.all([countIP(), countPageViews()]);
+  document.getElementById('view-count').innerHTML = `<span class="tooltiptext"> ${formattedSize} views | ${formattedCount} visits</span><i class="fa-solid fa-eye"></i> ${formattedSize} | ${formattedCount}`;
 }
 
 // Store IP address in Firebase database only if it is not already stored
@@ -81,7 +88,7 @@ getIP().then(ip => {
   const ipRef = ref(database, 'ip');
   get(ipRef).then(snapshot => {
     const data = snapshot.val();
-    const uniqueIps = data ? new Set(Object.values(data)) : new Set();
+    const uniqueIps = data ? new Set(Object.values(data).map(entry => entry.ip)) : new Set();
     if (!uniqueIps.has(ip)) {
       storeIP(ip);
     }
