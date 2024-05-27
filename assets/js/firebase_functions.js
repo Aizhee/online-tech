@@ -46,7 +46,7 @@ async function getIP() {
 // Store IP address in Firebase database
 async function storeIP(ip) {
   const ipRef = ref(database, 'ip');
-  push(ipRef, { ip: ip, timestamp: Date.now() });
+  push(ipRef, { ip: ip });
 }
 
 function formatNumber(num) {
