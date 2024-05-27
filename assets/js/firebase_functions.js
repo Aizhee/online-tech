@@ -2,9 +2,13 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-app.js";
 import { getDatabase, ref, push, get, set } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-database.js";
 
+//fetch api key from https://proturl.netlify.app/apikeys/?key=FIREBASE_KEY
+const response = await fetch(`https://proturl.netlify.app/apikeys/?key=FIREBASE_KEY`);
+const data = await response.json();
+
 // Configure Firebase
 const firebaseConfig = {
-  apiKey: process.env.FIREBASE_API_KEY,
+  apiKey: data.key,
   authDomain: "protected-url.firebaseapp.com",
   projectId: "protected-url",
   storageBucket: "protected-url.appspot.com",
