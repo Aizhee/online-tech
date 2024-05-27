@@ -34,10 +34,6 @@ jobs:
     steps:
       - name: 🚚 Get latest code
         uses: actions/checkout@v4
-        
-       # Inject secrets as environment variables
-      - name: Inject API Key
-        run: echo "FIREBASE_API_KEY=${{ secrets.FIREBASE_API_KEY }}" >> $GITHUB_ENV
 
       - name: 🛠️ Setup Pages
         uses: actions/configure-pages@v5
