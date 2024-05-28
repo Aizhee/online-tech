@@ -10,5 +10,5 @@ A repository for my web activities on  Online technologies laboratory
 
 **Client:** Html, CSS, Sass, SCSS, Javascript
 
-**Server:** Github Pages, Infinity Free, Netlify
+**Server:** Github Pages, Infinity Free, Netlify, Firebase
 
