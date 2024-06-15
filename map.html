@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IP Address Locator</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ol3/4.6.5/ol.css" type="text/css">
+    <style>
+        #map {
+            height: 500px;
+            width: 100%;
+        }
+        .ol-popup {
+            position: absolute;
+            background-color: white;
+            -webkit-filter: drop-shadow(0 1px 4px rgba(0,0,0,0.2));
+            filter: drop-shadow(0 1px 4px rgba(0,0,0,0.2));
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid #cccccc;
+            bottom: 12px;
+            left: -50px;
+            min-width: 280px;
+        }
+        .ol-popup:after, .ol-popup:before {
+            top: 100%;
+            border: solid transparent;
+            content: " ";
+            height: 0;
+            width: 0;
+            position: absolute;
+            pointer-events: none;
+        }
+        .ol-popup:after {
+            border-top-color: white;
+            border-width: 10px;
+            left: 48px;
+            margin-left: -10px;
+        }
+        .ol-popup:before {
+            border-top-color: #cccccc;
+            border-width: 11px;
+            left: 48px;
+            margin-left: -11px;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ol3/4.6.5/ol.js"></script>
+</head>
+<body>
+    <h1>IP Address Locator</h1>
+    <form id="ipForm">
+        <label for="ipAddresses">Enter IP addresses (comma-separated):</label><br>
+        <input type="text" id="ipAddresses" name="ipAddresses" required><br><br>
+        <input type="submit" value="Locate">
+    </form>
+    <div id="map" class="map"></div>
+    <div id="popup" class="ol-popup"></div>
+
+    <script>
+        document.getElementById('ipForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            let ipAddresses = document.getElementById('ipAddresses').value.split(',');
+            let promises = ipAddresses.map(ip => fetch(`https://ipapi.co/${ip.trim()}/json/`)
+                .then(response => response.json())
+                .then(data => ({
+                    ip: data.ip,
+                    lat: data.latitude,
+                    lng: data.longitude,
+                    isp: data.org,
+                    city: data.city,
+                    region: data.region,
+                    country: data.country_name
+                }))
+                .catch(() => null)
+            );
+
+            Promise.all(promises).then(locations => {
+                locations = locations.filter(location => location !== null);
+                initMap(locations);
+            });
+        });
+
+        function initMap(locations) {
+            let features = locations.map(location => new ol.Feature({
+                geometry: new ol.geom.Point(ol.proj.fromLonLat([location.lng, location.lat])),
+                data: location
+            }));
+
+            let vectorSource = new ol.source.Vector({
+                features: features
+            });
+
+            let iconStyle = new ol.style.Style({
+                image: new ol.style.Icon({
+                    anchor: [0.5, 1],
+                    src: 'https://openlayers.org/en/v4.6.5/examples/data/icon.png'  // URL to a pin icon
+                })
+            });
+
+            let vectorLayer = new ol.layer.Vector({
+                source: vectorSource,
+                style: iconStyle
+            });
+
+            let map = new ol.Map({
+                target: 'map',
+                layers: [
+                    new ol.layer.Tile({
+                        source: new ol.source.OSM()
+                    }),
+                    vectorLayer
+                ],
+                view: new ol.View({
+                    center: ol.proj.fromLonLat([0, 0]),
+                    zoom: 3  // Adjusted zoom level for better visibility
+                })
+            });
+
+            // Add a popup overlay
+            let container = document.getElementById('popup');
+            let overlay = new ol.Overlay({
+                element: container,
+                positioning: 'bottom-center',
+                stopEvent: false,
+                offset: [0, -50]
+            });
+            map.addOverlay(overlay);
+
+            // Display popup on hover
+            map.on('pointermove', function(evt) {
+                let feature = map.forEachFeatureAtPixel(evt.pixel, function(feature) {
+                    return feature;
+                });
+
+                if (feature) {
+                    let coordinates = feature.getGeometry().getCoordinates();
+                    let data = feature.get('data');
+                    overlay.setPosition(coordinates);
+                    container.innerHTML = `<strong>IP:</strong> ${data.ip}<br>
+                                           <strong>ISP:</strong> ${data.isp}<br>
+                                           <strong>City:</strong> ${data.city}<br>
+                                           <strong>Region:</strong> ${data.region}<br>
+                                           <strong>Country:</strong> ${data.country}`;
+                    container.style.display = 'block';
+                } else {
+                    container.style.display = 'none';
+                }
+            });
+
+            // Adjust the map view to fit all markers
+            let extent = vectorSource.getExtent();
+            map.getView().fit(extent, {padding: [50, 50, 50, 50]});
+        }
+    </script>
+</body>
+</html>
